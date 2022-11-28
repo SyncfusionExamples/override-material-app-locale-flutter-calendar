@@ -7,48 +7,6 @@ In Flutter, you can override the Material app locale with different locale by us
 ## Override material app locale and locale for the calendar
 In this sample, the SfCalendar and SfDateRangePicker control is present in the Column widget. The SfCalendar is placed in the Localization.override constructor in which the inherited locale (defined in Material app locale) and SfDateRangePicker have Material app locale.
 
-```
-class LocalizationSupport extends StatelessWidget {
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: [
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-      ],
-      supportedLocales: [
-        const Locale('en'),
-        const Locale('zh'),
-      ],
-      locale: const Locale('zh'),
-      debugShowCheckedModeBanner: false,
-      home: CustomStringLocale(),
-    );
-  }
-}
-
-class ScheduleExample extends State<CustomStringLocale> {
-  @override
-  Widget build(BuildContext context) {
-    return (Scaffold(
-      body: Column(
-        children: [
-          Localizations.override(
-            context: context,
-            locale: Locale('en'),
-            child: Expanded(child: SfCalendar()),
-          ),
-          SfDateRangePicker()
-        ],
-      ),
-    ));
-  }
-}
-
-```
-
-
 ## Requirements to run the demo
 * [VS Code](https://code.visualstudio.com/download)
 * [Flutter SDK v1.22+](https://flutter.dev/docs/development/tools/sdk/overview)
